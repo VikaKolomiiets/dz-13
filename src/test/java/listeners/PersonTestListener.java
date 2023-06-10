@@ -12,14 +12,14 @@ public class PersonTestListener implements ITestListener {
     private static final Logger log = Logger.getLogger(PersonTestListener.class);
     @Override
     public void onTestStart(ITestResult result) {
-        System.out.println("result = " + result.getInstanceName());
+        System.out.println("test: " + result.getInstanceName() + " is started");
     }
-//
-//    @Override
-//    public void onTestSuccess(ITestResult result) {
-//        ITestListener.super.onTestSuccess(result);
-//    }
-//
+
+    @Override
+    public void onTestSuccess(ITestResult result) {
+        System.out.println("test: " + result.getInstanceName() + " is successful");;
+    }
+
 //    @Override
 //    public void onTestFailure(ITestResult result) {
 //        ITestListener.super.onTestFailure(result);

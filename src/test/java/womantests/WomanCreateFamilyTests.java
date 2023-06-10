@@ -4,6 +4,7 @@ import datesourse.DateForDataProvider;
 import exceptions.DeadPersonException;
 import exceptions.DoubleActionException;
 import exceptions.ObjectNullException;
+import io.qameta.allure.Description;
 import listeners.PersonTestListener;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -28,6 +29,7 @@ public class WomanCreateFamilyTests {
         this.woman = null;
     }
 
+    @Description("Positive test")
     @Test(dataProviderClass = DateForDataProvider.class, dataProvider = "man-data-create-family")
     public void testWomanCreateFamilyPositive(Man newHusband, boolean isChangeLastName, boolean isChangeLastNameNewHusband){
 
@@ -38,6 +40,7 @@ public class WomanCreateFamilyTests {
         Assert.assertEquals(this.woman.getPartner().getDateOfBirth(), newHusband.getDateOfBirth(), "The LastName of Husband doesn't correct");
     }
 
+    @Description("Positive test")
     @Test(dataProviderClass = DateForDataProvider.class, dataProvider = "man-data-create-family")
     public void testWomanCreateFamilyChangeLastName(Man newHusband, boolean isChangeLastName, boolean isChangeLastNameNewHusband){
         this.woman.createFamily(newHusband, isChangeLastName, isChangeLastNameNewHusband);
@@ -48,16 +51,22 @@ public class WomanCreateFamilyTests {
             Assert.assertEquals(this.woman.getPartner().getLastName(), this.woman.getLastName(), "Woman didn't cange LastName");
         }
     }
+
+    @Description("Exception test")
     @Test
     public void testWomanCreateFamilyNullObjectException(){
         Assert.assertThrows(ObjectNullException.class, () -> this.woman.createFamily(null, false, true));
     }
+
+    @Description("Exception test")
     @Test
     public void testWomanCreateFamilyDoubleActionException(){
         Assert.assertThrows(DoubleActionException.class, () -> this.woman.createFamily(
                 new Man("Hans", "Hang", LocalDate.of(2010, 01, 01))
                 , true, true));
     }
+    
+    @Description("Exception test")
     @Test
     public void testWomanCreateFamilyCheckIsAliveException(){
         this.woman.setDateOfDeath(LocalDate.of(2020, 10, 10));
@@ -66,6 +75,7 @@ public class WomanCreateFamilyTests {
                 , false, true));
     }
 
+    @Description("Exception test")
     @Test
     public void testWomanCreateFamilyCheckIsAliveManException(){
         Man newHusband =  new Man("Hans", "Hang", LocalDate.of(2010, 01, 01));
@@ -73,6 +83,8 @@ public class WomanCreateFamilyTests {
         Assert.assertThrows(DeadPersonException.class,() -> this.woman.createFamily(
                 newHusband, false, true));
     }
+
+    @Description("Exception test")
     @Test
     public void testWomanCreateFamilyCheckMarriedException(){
         this.woman.setStatus(Status.IS_MARRIED);
@@ -80,6 +92,7 @@ public class WomanCreateFamilyTests {
                 new Man("Hans", "Hang", LocalDate.of(2010, 01, 01))
                 , false, true));
     }
+    @Description("Exception test")
     @Test
     public void testWomanCreateFamilyCheckMarriedManException(){
         Man newHusband =  new Man("Hans", "Hang", LocalDate.of(2010, 01, 01));
@@ -87,7 +100,4 @@ public class WomanCreateFamilyTests {
         Assert.assertThrows(DoubleActionException.class, () -> this.woman.createFamily(
                 newHusband, false, true));
     }
-
-
-
 }

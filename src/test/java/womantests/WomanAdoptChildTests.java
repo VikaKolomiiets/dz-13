@@ -4,6 +4,7 @@ import datesourse.DateForDataProvider;
 import exceptions.DeadPersonException;
 import exceptions.MerriedStatusException;
 import exceptions.ParentAgeException;
+import io.qameta.allure.Description;
 import listeners.PersonTestListener;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -31,6 +32,7 @@ public class WomanAdoptChildTests {
         this.woman = null;
     }
 
+    @Description("Positive test")
     @Test(dataProviderClass = DateForDataProvider.class, dataProvider = "person-data-adopt-getbirth-child")
     public void testWomanAdoptChildPositive(Person person){
         String beforeLastNameChild = person.getLastName();
@@ -42,19 +44,20 @@ public class WomanAdoptChildTests {
         Assert.assertEquals(actualLastName, expectedLastName, "LastName was not changed oo last Mane of Man");
         Assert.assertNotEquals(actualLastName, beforeLastNameChild, "LastName was not changed");
     }
-
+    @Description("Exception test")
     @Test(dataProviderClass = DateForDataProvider.class, dataProvider = "person-data-adopt-getbirth-child")
     public void testWomanAdoptChildCheckIsAliveException(Person child){
         child.setDateOfDeath(LocalDate.of(2023, 01,01));
         Assert.assertThrows(DeadPersonException.class, () -> this.woman.adoptChild(child));
     }
-
+    @Description("Exception test")
     @Test
     public void testWomanAdoptChildCheckMerriedStatusException(){
         this.woman.setStatus(Status.SINGLE);
         Assert.assertThrows(MerriedStatusException.class
                 , () -> this.woman.adoptChild(new Man("Lo", "Lee", LocalDate.of(2020, 2, 2))));
     }
+    @Description("Exception test")
     @Test
     public void testWomanAdoptChildCheckAgeException(){
         Woman newMother = new Woman("Aelita", "White", LocalDate.of(2016, 1, 7));

@@ -65,7 +65,7 @@ public class WomanCreateFamilyTests {
                 new Man("Hans", "Hang", LocalDate.of(2010, 01, 01))
                 , true, true));
     }
-    
+
     @Description("Exception test")
     @Test
     public void testWomanCreateFamilyCheckIsAliveException(){

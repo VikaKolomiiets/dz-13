@@ -1,6 +1,7 @@
 package persontests;
 
 import datesourse.DateForDataProvider;
+import io.qameta.allure.Attachment;
 import io.qameta.allure.Description;
 import listeners.PersonTestListener;
 import org.testng.Assert;
@@ -17,7 +18,7 @@ import java.time.temporal.ChronoUnit;
 public class PersonGetFullAge {
 
     Person person;
-
+    @Attachment
     @Description("Positive test")
     @Test(dataProviderClass = DateForDataProvider.class, dataProvider ="person-data-full-age")
     public void testPersonGetFullAgePositive(int year, int month, int day){
@@ -26,9 +27,10 @@ public class PersonGetFullAge {
         Assert.assertEquals(person.getFullAge(), fullAges, "Method getFullAge doesn't work");
         System.out.println("Full age is " + person.getFullAge() + ", if data of birth " + person.getDateOfBirth());
     }
+    @Attachment
     @Description("Positive test")
     @Test(dataProviderClass = DateForDataProvider.class, dataProvider ="person-data-birth-death")
-    public void testPersonGetFullAgeIfPersonDied(int year, int month, int day, int yearDeath, int monthDeath, int dayDeath){
+    public void testPersonGetFullAgeIfPersonDiedPositive(int year, int month, int day, int yearDeath, int monthDeath, int dayDeath){
         Person person = new Man("Jon", "White", LocalDate.of(year, month, day));
         person.setDateOfDeath(LocalDate.of(yearDeath, monthDeath, dayDeath));
         int expectedAges = (int)ChronoUnit.YEARS.between(LocalDate.of(year, month, day), LocalDate.of(yearDeath, monthDeath, dayDeath));

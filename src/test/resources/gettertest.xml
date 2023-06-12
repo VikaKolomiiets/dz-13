@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite first" verbose="2">
+    <listeners>
+        <listener class-name="listeners.PersonTestListener" />
+    </listeners>
     <test name="Parameter Test one">
         <parameter name="name" value="Wong" />
         <classes>

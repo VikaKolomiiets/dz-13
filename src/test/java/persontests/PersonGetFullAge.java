@@ -3,6 +3,8 @@ package persontests;
 import datesourse.DateForDataProvider;
 import io.qameta.allure.Attachment;
 import io.qameta.allure.Description;
+import org.testng.asserts.Assertion;
+import utils.database.DataBaseReader;
 import utils.listeners.PersonTestListener;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
@@ -12,6 +14,7 @@ import personalization.Person;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import java.util.List;
 
 @Listeners(PersonTestListener.class)
 public class PersonGetFullAge {
@@ -36,6 +39,15 @@ public class PersonGetFullAge {
         Assert.assertEquals(person.getFullAge(), expectedAges, "Method getFullAges doesn't work");
         System.out.println("Full ages was " + person.getFullAge()
                 + " life-dates: " + person.getDateOfBirth().getYear() + ":" + person.getDateOfDeath().getYear());
+    }
+
+    @Test
+    public void testPersonGetFullAgeFromDataBasePositive(){
+        List<Person> persons = DataBaseReader.getPersonsFromDataBase();
+        for (Person person: persons) {
+            System.out.println(person.getFullAge());
+            Assert.assertNotEquals(person.getFullAge(), 0 );
+        }
     }
 
 }

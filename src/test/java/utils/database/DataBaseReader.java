@@ -16,7 +16,7 @@ public class DataBaseReader {
 
     private final static String QUERY_SELECT = "select *from person";
 
-    public static List<Person> getPersonFromDataBase() {
+    public static List<Person> getPersonsFromDataBase() {
         List<Person> persons = new ArrayList<Person>();
         try (Connection connection = DriverManager.getConnection(URL, USER_NAME, USER_PASSWORD)) {
             Statement sqlStatement = connection.createStatement();

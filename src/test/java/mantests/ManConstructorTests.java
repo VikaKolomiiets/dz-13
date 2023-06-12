@@ -3,7 +3,7 @@ package mantests;
 import datesourse.DateForDataProvider;
 import exceptions.NameException;
 import exceptions.ObjectNullException;
-import listeners.PersonTestListener;
+import utils.listeners.PersonTestListener;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;

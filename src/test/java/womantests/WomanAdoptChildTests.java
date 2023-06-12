@@ -5,7 +5,7 @@ import exceptions.DeadPersonException;
 import exceptions.MerriedStatusException;
 import exceptions.ParentAgeException;
 import io.qameta.allure.Description;
-import listeners.PersonTestListener;
+import utils.listeners.PersonTestListener;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;

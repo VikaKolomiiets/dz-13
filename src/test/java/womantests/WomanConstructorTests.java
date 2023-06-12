@@ -4,11 +4,10 @@ import datesourse.DateForDataProvider;
 import exceptions.NameException;
 import exceptions.ObjectNullException;
 import io.qameta.allure.Description;
-import listeners.PersonTestListener;
+import utils.listeners.PersonTestListener;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import personalization.Man;
 import personalization.Woman;
 
 import java.time.LocalDate;

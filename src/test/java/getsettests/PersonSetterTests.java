@@ -3,7 +3,7 @@ package getsettests;
 import exceptions.NameException;
 import exceptions.ObjectNullException;
 import exceptions.OutOfDataRangeException;
-import listeners.PersonTestListener;
+import utils.listeners.PersonTestListener;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import personalization.Man;

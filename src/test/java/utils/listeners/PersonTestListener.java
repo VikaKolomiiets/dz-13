@@ -1,18 +1,9 @@
-package listeners;
+package utils.listeners;
 
 import io.qameta.allure.Allure;
-import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 import org.testng.log4testng.Logger;
-
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
-import java.nio.file.Files;
-import java.nio.file.OpenOption;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.logging.LogManager;
 
 
 public class PersonTestListener implements ITestListener {

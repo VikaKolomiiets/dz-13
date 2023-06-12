@@ -29,7 +29,7 @@ public class PersonTestListener implements ITestListener {
     public void onTestSuccess(ITestResult result) {
         log.info(String.format("test: [%s] is successful", result.getInstanceName()));
         //System.out.println("test: " + result.getInstanceName() + " is successful");;
-        Allure.addAttachment("Logs", "Test", String.format("test: [%s] is successful", result.getName()));
+        Allure.addAttachment("Logs", String.format("test: [%s] is successful", result.getName()));
 
     }
 

@@ -14,8 +14,7 @@ public class DataBaseReader {
     private final static String USER_NAME = "dz-13";
     private final static String USER_PASSWORD = "dz-13";
 
-    private final static String QUERY_SELECT = "select *from person";
-
+    private final static String QUERY_SELECT = "select * from person";
     private final static String QUERY_SELECT_MAN = "select * from person where isman is true";
     private final static String QUERY_SELECT_WOMAN = "select * from person where isman is false";
 

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Suite second"  verbose="2">
+    <test name="Parameter Test one">
+        <classes>
+            <parameter name="name" value="Flow" />
+            <class name="getsettests.PersonSetterTests">
+                <methods>
+                    <include name="testSetFirstNamePositive" />
+                    <include name="testSetLastNamePositive" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Parameter Test two">
+        <classes>
+            <parameter name="yyyy" value="2020" />
+            <parameter name="mm" value="1" />
+            <parameter name="dd" value="1" />
+            <class name="getsettests.PersonSetterTests">
+                <methods>
+                    <include name="testSetDateOfDeathPositive" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Parameter Test tree">
+        <classes>
+            <parameter name="name1" value="Hanna"/>
+            <parameter name="name2" value="Luiza"/>
+            <class name="getsettests.PersonSetterTests">
+                <methods>
+                    <include name="testPersonSetPartnerPositive" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Parameter Test four">
+        <classes>
+            <parameter name="status" value="IS_MARRIED"/>
+            <class name="getsettests.PersonSetterTests">
+                <methods>
+                    <include name="testPersonSetStatusPositive" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Parameter Test five">
+        <classes>
+            <parameter name="name-mistake" value="L"/>
+            <class name="getsettests.PersonSetterTests">
+                <methods>
+                    <include name="testSetFirstNameException"/>
+                    <include name="testSetLastNameException"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Parameter Test six">
+        <classes>
+            <parameter name="yyyy-bad" value="1990"/>
+            <class name="getsettests.PersonSetterTests">
+                <methods>
+                    <include name="testSetDateOfDeathException"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Parameter Test seven">
+        <classes>
+            <parameter name="name-null" value="null"/>
+            <class name="getsettests.PersonSetterTests">
+                <methods>
+                    <include name="testSetFirstNameNullException"/>
+                    <include name="testSetLastNameNullException" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

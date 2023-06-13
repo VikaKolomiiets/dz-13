@@ -30,6 +30,7 @@ public class WomanIsRetiredTests {
         System.out.println(dateOfBirth + " : " + fullAge + " : " + woman.isRetired());
     }
 
+    @Description("From SQL DataBase")
     @Test
     public void testWomanIsRetiredFromDataBasePositive(){
         List<Woman> persons = DataBaseReader.getWomanFromDataBase();

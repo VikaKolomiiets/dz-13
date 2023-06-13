@@ -29,6 +29,7 @@ public class PersonGetFullAge {
         Assert.assertEquals(person.getFullAge(), fullAges, "Method getFullAge doesn't work");
         System.out.println("Full age is " + person.getFullAge() + ", if data of birth " + person.getDateOfBirth());
     }
+    
     @Attachment
     @Description("Positive test")
     @Test(dataProviderClass = DateForDataProvider.class, dataProvider ="person-data-birth-death")
@@ -42,7 +43,7 @@ public class PersonGetFullAge {
     }
 
     @Test
-    @Description("Positive test with data from SQLdataBase ")
+    @Description("From SQL DataBase")
     public void testPersonGetFullAgeFromDataBasePositive(){
         List<Person> persons = DataBaseReader.getPersonsFromDataBase();
         for (Person person: persons) {

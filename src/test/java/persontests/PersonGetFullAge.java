@@ -42,6 +42,7 @@ public class PersonGetFullAge {
     }
 
     @Test
+    @Description("Positive test with data from SQLdataBase ")
     public void testPersonGetFullAgeFromDataBasePositive(){
         List<Person> persons = DataBaseReader.getPersonsFromDataBase();
         for (Person person: persons) {
